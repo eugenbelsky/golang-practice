@@ -15,14 +15,6 @@
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
-		},
-		{
-			"file": "codewars-golang.sublime-project",
-			"settings":
-			{
-				"buffer_size": 45,
-				"line_ending": "Unix"
-			}
 		}
 	],
 	"build_system": "Packages/Golang Build/Go.sublime-build",
@@ -85,6 +77,26 @@
 		"selected_items":
 		[
 			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"quic",
+				"Git: Quick Commit (repo)"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
 				"git",
 				"Git: Init"
 			],
@@ -94,10 +106,6 @@
 			],
 			[
 				"install pa",
-				"Package Control: Install Package"
-			],
-			[
-				"packa",
 				"Package Control: Install Package"
 			],
 			[
@@ -169,7 +177,6 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/evgen/OneDrive/Рабочий стол/Codewards/Golang"
 	],
 	"file_history":
 	[
@@ -186,7 +193,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 104.0,
 		"where_history":
 		[
 		]
@@ -230,7 +237,7 @@
 						"selection":
 						[
 							[
-								393,
+								0,
 								393
 							]
 						],
@@ -239,38 +246,10 @@
 							"syntax": "Packages/Go/Go.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 14.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "codewars-golang.sublime-project",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 45,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -314,6 +293,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 260.0
 	},
 	"output.golang_build":
 	{
@@ -365,7 +348,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 160.0,
+	"side_bar_width": 331.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
