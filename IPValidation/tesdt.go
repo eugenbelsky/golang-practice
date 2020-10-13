@@ -9,8 +9,7 @@ import (
 func main() {
 	var inputStr = "192.168.1.1"
 	var a = strings.SplitAfter(inputStr, ".")
-	// var IPArray = [4]uint8{"192"}
-	for s := range a {
+	// var IPArray = [4]uint8{"192"}3
 		fmt.Printf(a[s])
 	}
 	// grades := [3]{13, 145, 54}
