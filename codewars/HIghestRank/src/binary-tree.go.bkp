@@ -1,0 +1,63 @@
+package main
+
+import "fmt"
+
+type Node struct {
+	left  *Node
+	right *Node
+	data  int64
+}
+
+type Tree struct {
+	root *Node
+}
+
+func main() {
+	var tree Tree
+	tree.insert(10)
+	tree.insert(12)
+	tree.insert(30)
+	tree.insert(1)
+	tree.insert(12)
+
+	printPreOrder(tree.root)
+}
+
+func printPreOrder(n *Node) {
+	if n == nil {
+		return
+	} else {
+		fmt.Printf("%d ", n.data)
+		printPreOrder(n.left)
+		printPreOrder(n.right)
+	}
+}
+
+func (t *Tree)
+insert(digit int64) {
+	if t.root == nil {
+		t.root = &Node{data: digit}
+	} else {
+		t.root.insert(digit)
+	}
+}
+
+func (n *Node) insert(digit int64) {
+	if digit <= n.data {
+		if n.left == nil {
+			n.left = &Node{data: digit}
+		} else {
+			n.left.insert(digit)
+		}
+	} else {
+		if n.right == nil {
+			n.right = &Node{data: digit}
+		} else {
+			n.right.insert(digit)
+		}
+	}
+}
+
+// func HighestRank(nums []int) int {
+// 	return -1
+//   }
