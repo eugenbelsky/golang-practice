@@ -64,15 +64,15 @@ func Snail(snaipMap [][]int) []int {
 	return output
 }
 
-func removeElement(slice []int, i int) []int{
+func removeElement(slice []int, i int) []int {
 	if len(slice) > 0 {
 		if i == len(slice)-1 { //if last
 			slice = slice[:len(slice)-1]
 		} else {
-			slice = append(slice[:i], slice[i+1:]..)
+			slice = append(slice[:i], slice[i+1:]...)
 		}
 
-	} 
-	
+	}
+
 	return slice
 }
