@@ -1,0 +1,131 @@
+package main
+
+import (
+	"errors"
+	"flag"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+	"unicode/utf8"
+)
+
+var (
+	fileBytesCount = flag.String("c", "", "count bytes in a file, specify file path")
+	fileLinesCount = flag.String("l", "", "count lines in a file, specify file path")
+	fileWordsCount = flag.String("w", "", "count words in a file, specify file path")
+	fileCharsCount = flag.String("m", "", "count chars in a file, specify file path")
+)
+
+func getInput() ([]byte, error) {
+	var content []byte
+	var err error
+
+	flag.Parse()
+
+	// Read stdin if no input was provided
+	if flag.NFlag() == 0 && flag.NArg() == 0 {
+		content, err = io.ReadAll(os.Stdin)
+		if err != nil {
+			return nil, err
+		}
+		return content, nil
+	}
+	// Read file if only arg was provided
+	if flag.NFlag() == 0 && flag.NArg() == 1 {
+		content, err = os.ReadFile(flag.Arg(0))
+		return content, nil
+	}
+
+	// Read file provided via flag
+	if flag.NFlag() > 0 && flag.NArg() == 0 {
+		content, err = os.ReadFile(flag.Arg(0))
+		return content, nil
+	}
+
+	// fallback in case input is broked
+	flag.Usage()
+	return nil, error(errors.New("Wrong input"))
+
+}
+func main() {
+
+	// Run all the flags if only filename was provided
+	if flag.NFlag() == 0 && flag.NArg() == 1 {
+		filePath := flag.Arg(0)
+		countBytes(filePath)
+		countLines(filePath)
+		countWords(filePath)
+		return
+	}
+	// Read stdin if no input was provided
+	if flag.NFlag() == 0 && flag.NArg() == 0 {
+		stdin, err := io.ReadAll(os.Stdin)
+		if err != nil {
+			log.Fatal(err)
+		}
+		contentStr := string(stdin)
+	}
+	if *fileBytesCount != "" {
+		countBytes(*fileBytesCount)
+	}
+	if *fileLinesCount != "" {
+		countLines(*fileLinesCount)
+	}
+	if *fileWordsCount != "" {
+		countWords(*fileWordsCount)
+	}
+	if *fileCharsCount != "" {
+		countChars(*fileCharsCount)
+	}
+
+}
+
+func countBytes(filePath string) {
+	fileContent, err := os.ReadFile(os.Stdin)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(len(fileContent))
+}
+
+func countLines(filePath string) {
+	fileContent, err := os.ReadFile(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	contentStr := string(fileContent)
+	lines := strings.Split(contentStr, "\n")
+	// Count the number of lines
+	lineCount := len(lines)
+
+	if contentStr != "" && contentStr[len(contentStr)-1] == '\n' {
+		lineCount--
+	}
+	fmt.Println(lineCount)
+}
+
+func countWords(filePath string) {
+	fileContent, err := os.ReadFile(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	contentStr := string(fileContent)
+	words := strings.Fields(contentStr)
+	// Count the number of words
+	wordCount := len(words)
+
+	fmt.Println(wordCount)
+}
+
+func countChars(filePath string) {
+	fileContent, err := os.ReadFile(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	contentStr := string(fileContent)
+	charsCount := utf8.RuneCountInString(contentStr)
+	fmt.Println(charsCount)
+}
